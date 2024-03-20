@@ -14,6 +14,11 @@ async function main() {
     console.log("Plane Created:", newPlane)
   }
 
+async function main2() {
+const users = await prisma.planes.findMany()
+    console.log("All Users:",users)
+}
+
 main()
   .then(async () => {
     await prisma.$disconnect()
@@ -23,3 +28,13 @@ main()
     await prisma.$disconnect()
     process.exit(1)
   })
+
+main2()
+.then(async () => {
+await prisma.$disconnect()
+})
+.catch(async (e) => {
+console.error(e)
+await prisma.$disconnect()
+process.exit(1)
+})
