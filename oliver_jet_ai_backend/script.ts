@@ -1,10 +1,18 @@
-import { PrismaClient } from '@prisma/client'
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient()
 
 async function main() {
-  // ... you will write your Prisma Client queries here
-}
+    const newPlane = await prisma.planes.create({
+      data: {
+        name: 'examplePlane',
+        wingspan: 1,
+        engines: 1,
+        year: 1
+      },
+    })
+    console.log("Plane Created:", newPlane)
+  }
 
 main()
   .then(async () => {
