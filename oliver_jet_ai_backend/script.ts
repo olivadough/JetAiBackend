@@ -15,7 +15,7 @@ async function main() {
   }
 
 async function main2() {
-const users = await prisma.planes.findMany()
+  const users = await prisma.planes.findMany()
     console.log("All Users:",users)
 }
 
