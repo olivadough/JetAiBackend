@@ -120,7 +120,7 @@ export default function Home() {
             <tr key={index} className="border border-black">
               <td className="border border-black px-4 py-2 text-black">{jetData.rank}</td>
               <td className="border border-black px-4 py-2 text-black">{jetData.name}</td>
-              <td className="border border-black px-4 py-2 text-black">{jetData.MaxSeats}</td>
+              <td className="border border-black px-4 py-2 text-black">{jetData.value}</td>
             </tr>
           );
         })}

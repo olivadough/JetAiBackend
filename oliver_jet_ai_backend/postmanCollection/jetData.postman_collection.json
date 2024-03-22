@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "ea83daad-2685-4a39-9313-fb55661cf40b",
+		"name": "jetData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2222553",
+		"_collection_link": "https://warped-robot-281715.postman.co/workspace/My-Workspace~c1482496-7624-4281-8069-865f43baa705/collection/2222553-ea83daad-2685-4a39-9313-fb55661cf40b?action=share&source=collection_link&creator=2222553"
+	},
+	"item": [
+		{
+			"name": "jetdata_comparisons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\": [1,2,3,4],\n    \"sortBy\":\"speed\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/post/jetdata_comparison"
+			},
+			"response": []
+		},
+		{
+			"name": "jetdata",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/get/jetdata"
+			},
+			"response": []
+		}
+	]
+}

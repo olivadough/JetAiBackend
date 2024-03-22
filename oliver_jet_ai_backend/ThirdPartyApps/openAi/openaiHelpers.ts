@@ -20,7 +20,7 @@ export async function organizeTopSpeed(aircrafts: Planes[]) {
       model: "gpt-3.5-turbo-0125",
       response_format: { type: "json_object" },
       messages: [
-        { role: "system", content: "You are a helpful assistant that organizes planes in an array by fastest speed and return a json object with only the rank, name, wingspan, engine, year, and topSpeed. Make sure that the object returned is called planes." },
+        { role: "system", content: "You are a helpful assistant that organizes planes in an array by fastest speed and return a json object with only the rank, name, wingspan, engine, year, value, and topSpeed. Make sure that the object returned is called planes." },
         { role: "user", content: JSON.stringify(aircrafts) }],
     });
     if (completion.choices[0].message.content !== null) {
@@ -28,7 +28,7 @@ export async function organizeTopSpeed(aircrafts: Planes[]) {
       console.log("content:",content)
   
       const stringArray: string[] = content.planes.map((item: any) => {
-        return `rank: ${item.rank}, name: ${item.name}, topSpeed: ${item.topSpeed}, wingspan:${item.wingspan}, engine:${item.engine}, year: ${item.year}`;
+        return `rank: ${item.rank}, name: ${item.name}, topSpeed: ${item.topSpeed}, wingspan:${item.wingspan}, engine:${item.engine}, year: ${item.year}, value:${item.value}`;
       });
   
       console.log("organizeTopSpeed:", stringArray);
@@ -51,7 +51,7 @@ export async function organizeFuelEfficiency(aircrafts: Planes[]): Promise<strin
       model: "gpt-3.5-turbo-0125",
       response_format: { type: "json_object" },
       messages: [
-        { role: "system", content: "You are a helpful assistant that organizes planes in an array by Fuel Efficiency and return a json object with only the rank, name, wingspan, engine, year, and fuelEfficiency.  Make sure that the object returned is called planes." },
+        { role: "system", content: "You are a helpful assistant that organizes planes in an array by Fuel Efficiency and return a json object with only the rank, name, wingspan, engine, year, value, fuelEfficiency.  Make sure that the object returned is called planes." },
         { role: "user", content: JSON.stringify(aircrafts) }
       ],
     });
@@ -61,7 +61,7 @@ export async function organizeFuelEfficiency(aircrafts: Planes[]): Promise<strin
       console.log("content:",content)
   
       const stringArray: string[] = content.planes.map((item: any) => {
-        return `rank: ${item.rank}, name: ${item.name}, fuelEfficiency: ${item.fuelEfficiency}, wingspan:${item.wingspan}, engine:${item.engine}, year: ${item.year}`;
+        return `rank: ${item.rank}, name: ${item.name}, fuelEfficiency: ${item.fuelEfficiency}, wingspan:${item.wingspan}, engine:${item.engine}, year: ${item.year}, value:${item.value}`;
       });
   
       console.log("organizeFuelEfficiency:", stringArray);
@@ -85,7 +85,7 @@ export async function organizeMaxSeats(aircrafts: Planes[]): Promise<string[]> {
       model: "gpt-3.5-turbo-0125",
       response_format: { type: "json_object" },
       messages: [
-        { role: "system", content: "You are a helpful assistant that organizes planes in an array by Maximum Seats and return a json object with only the rank, name, wingspan, engine, year, and maxSeats.  Make sure that the object returned is called planes." },
+        { role: "system", content: "You are a helpful assistant that organizes planes in an array by Maximum Seats and return a json object with only the rank, name, wingspan, engine, year, value, and maxSeats.  Make sure that the object returned is called planes." },
         { role: "user", content: JSON.stringify(aircrafts) }
       ],
     });
@@ -95,7 +95,7 @@ export async function organizeMaxSeats(aircrafts: Planes[]): Promise<string[]> {
       console.log("content:",content)
   
       const stringArray: string[] = content.planes.map((item: any) => {
-        return `Rank: ${item.rank}, Name: ${item.name}, MaxSeats: ${item.maxSeats}, wingspan:${item.wingspan}, engine:${item.engine}, year: ${item.year}`;
+        return `Rank: ${item.rank}, Name: ${item.name}, MaxSeats: ${item.maxSeats}, wingspan:${item.wingspan}, engine:${item.engine}, year: ${item.year}, value:${item.value}`;
       });
   
       console.log("organizeMaxSeats:", stringArray);
