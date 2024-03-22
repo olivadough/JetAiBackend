@@ -2,6 +2,7 @@
 # Before Running
 1) Make sure to create a secret key from OpenAi
 2) Save the secret key from OpenAi as JET_AI_SECRET in the .env file
+Utilizes Model gpt-3.5-turbo-0125
 # How to get the server running
 1) Go to oliver_jet_ai_backend in the terminal
 2) press "yarn" in the terminal to install required packages
@@ -19,6 +20,7 @@ Voila! Your app should be running on "http://localhost:3000/"
 
 # To Test out Api Endpoints
 1) You can use the json file in the postman collection!
+
 # To test out functionality for openAi
 Utilizes Model gpt-3.5-turbo-0125
 1) Edit script_openai.ts

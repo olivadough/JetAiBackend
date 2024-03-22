@@ -2,10 +2,17 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [jets, setJets] = useState([]);
+  const [jets, setJets] = useState<Jet[]>([]);
   const [checkedJets, setCheckedJets] = useState(new Array(jets.length).fill(false));
-  const [organizedJets, setOrganizedJets] = useState([]);
+  const [organizedJets, setOrganizedJets] = useState<[]>([]);
   const [openaiValue, setOpenaiValue,] = useState('speed');
+
+  interface Jet {
+    name: string;
+    wingspan: number;
+    engines: number;
+    year: number;
+  }
 
   const handleCheckboxChange = (index: number) => {
     const updatedCheckedJets = [...checkedJets];
@@ -76,8 +83,8 @@ export default function Home() {
           </tr>
         </thead>
         <tbody className="text-gray-600">
-          {/* Dynamically generated rows sorted by wingspan */}
-          {jets.map((jet, index) => (
+          {
+            jets.map((jet, index) => (
             <tr key={index} className="border border-black">
               <td className="border border-black px-4 py-2"><input type="checkbox" onChange={() => handleCheckboxChange(index)} /></td>
               <td className="border border-black px-4 py-2 text-black">{jet.name}</td>
@@ -109,30 +116,24 @@ export default function Home() {
           </tr>
         </thead>
         <tbody className="text-gray-600">
-        {organizedJets.map((jet, index) => {
-        const jetData = jet.split(',').reduce((obj, pair) => {
-            const [key, value] = pair.trim().split(':');
-            obj[key.trim()] = value.trim();
-            return obj;
-          }, {});
+        {organizedJets.map((jetString: string, index: number) => {
+          const jetData = jetString.split(',').reduce((obj: any, pair: string) => {
+          const [key, value] = pair.split(':');
+          obj[key.trim()] = value.trim();
+          return obj;
+        }, {});
 
-          return (
-            <tr key={index} className="border border-black">
-              <td className="border border-black px-4 py-2 text-black">{jetData.rank}</td>
-              <td className="border border-black px-4 py-2 text-black">{jetData.name}</td>
-              <td className="border border-black px-4 py-2 text-black">{jetData.value}</td>
-            </tr>
-          );
-        })}
+  return (
+    <tr key={index} className="border border-black">
+      <td className="border border-black px-4 py-2 text-black">{jetData.rank}</td>
+      <td className="border border-black px-4 py-2 text-black">{jetData.name}</td>
+      <td className="border border-black px-4 py-2 text-black">{jetData.value}</td>
+    </tr>
+  );
+})}
+
         </tbody>
-      </table>
+      </table> 
     </div>
   );
 }
-
-// // Sample data for jets
-// const jets = [
-//   { name: "Gulfstream G650", wingspan: 99.7, engines: 2, year: 2012 },
-//   { name: "Bombardier Global 7500", wingspan: 104, engines: 2, year: 2018 },
-//   // Add more jet data as needed
-// ];
