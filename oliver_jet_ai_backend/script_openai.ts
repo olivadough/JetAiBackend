@@ -51,6 +51,7 @@ async function organizeMaxSeats() {
   }
 organizeMaxSeats()
 
+
 //EXAMPLE RESPONSES: 
 // organizeFuelEfficiency: {
 //     index: 0,
